@@ -2,16 +2,13 @@ import math
 import numpy as np
 import cv2
 
-#functhion
 def summ (i,j,img):
     sum = (img [i,j][0] + img [i,j][1] + img [i,j][2])/3
     return sum
 
-def arre (i,j,img):
+def arre (i,j,img,a,b):
     pix = summ (i,j,img)
     index = 0
-    a = 2
-    b = 2
     
     try:
         IndA = -a
@@ -25,7 +22,7 @@ def arre (i,j,img):
     return index
     
 
-def main (file):
+def main (file,a,b):
     img = cv2.imread(file)
     
     x = img.shape[0]
@@ -37,7 +34,7 @@ def main (file):
     while i < x:
         j = 0
         while j < y:
-            new [i,j] = [0,0,arre(i,j,img)]
+            new [i,j] = [0,0,arre(i,j,img,a,b)]
             print((i/x)+(j/(x*y)))
             j += 1
         i += 1
@@ -45,5 +42,4 @@ def main (file):
     return new
     
 
-file = "DR5_wt_r2.tif" 
-cv2.imwrite("new.jpg", main(file))
+
