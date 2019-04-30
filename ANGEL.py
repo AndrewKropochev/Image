@@ -4,8 +4,8 @@ import cv2
 import sys
         
 def summ (i,j,img):
-    sum = (img [i,j][0] + img [i,j][1] + img [i,j][2])/3
-    return sum
+    res_sum = (img [i,j][0] + img [i,j][1] + img [i,j][2])/3
+    return res_sum
 
 def arre (i,j,img,a,b):
     pix = summ (i,j,img)
